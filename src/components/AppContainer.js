@@ -1,17 +1,10 @@
 import React, { Component } from 'react'
 import Filters from './Filters'
 
+const baseUrl = "https://labeninjas.herokuapp.com"
+const demoKey = "e2190c39-7930-4db4-870b-bed0e5e4b88e"
+
 export class AppContainer extends Component {
-
-  state = {
-    minFilter: 0,
-    maxFilter: 10000,
-    nameFilter: ""
-  }
-
-  handleChangeName = (e) => {
-    this.setState({ nameFilter: e.target.value })
-  }
 
   render() {
     return (
