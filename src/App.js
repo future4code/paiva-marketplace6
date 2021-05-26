@@ -1,9 +1,14 @@
 import React from 'react'
 import { AppContainer } from './components/AppContainer'
+import FormCadastroServ from './components/InterfaceServico/FormCadastroServ'
 
 function App() {
 	return (
-        <AppContainer />
+		<div>
+			<AppContainer />
+			<FormCadastroServ />
+		</div>
+        
 	)
 }
 
