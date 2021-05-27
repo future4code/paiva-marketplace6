@@ -10,7 +10,6 @@ export class AppContainer extends Component {
     return (
       <div>
         <Filters
-          nameFilter={this.state.nameFilter}
           handleChangeName={this.handleChangeName}
         />
       </div>
