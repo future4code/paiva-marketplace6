@@ -56,24 +56,21 @@ export default class Carrinho extends React.Component {
         }
     }
 
-    removerCarrinho = (id) => {
-        const header = {
-            headers: {
-                Authorization: "e2190c39-7930-4db4-870b-bed0e5e4b88e"
-            }
-        };
+    removerCarrinho = async (id) => {
         const body = {
             taken: false
         };
-        axios
-            .post(`${baseUrl}/jobs/${id}`, body, header)
-            .then((msg) => {
-                alert("Apagado do carrinho com sucesso");
-            })
-            .catch((err) => {
-                alert(err);
-            });
-    };
+
+        try {
+            const res = await axios
+                .post(`${baseUrl}/jobs/${id}`, body, header)
+            alert("Apagado do carrinho com sucesso");
+        }
+
+        catch (err) {
+            alert(err)
+        }
+    }
 
 
 
@@ -84,10 +81,10 @@ export default class Carrinho extends React.Component {
             <ContainerCarrinho>
                 {this.state.servicos.map((servico) => {
                     if (servico.taken) {
-                       return <div>
-                        <h3>{servico.title}</h3>
-                        <h4>{servico.price}</h4>
-                        <button onClick={() => this.removerCarrinho(servico.id)}>X</button>
+                        return <div>
+                            <h3>{servico.title}</h3>
+                            <h4>{servico.price}</h4>
+                            <button onClick={() => this.removerCarrinho(servico.id)}>X</button>
                         </div>
                     }
                 })
