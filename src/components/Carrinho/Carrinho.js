@@ -26,11 +26,11 @@ export default class Carrinho extends React.Component {
 
 
     componentDidMount() {
-        this.getProdutos()
+        this.getJobs()
     }
 
     componentDidUpdate() {
-        this.getProdutos()
+        this.getJobs()
     }
 
     calculaTotal = () => {
@@ -43,7 +43,7 @@ export default class Carrinho extends React.Component {
         return totalPreco
     };
 
-    getProdutos = async () => {
+    getJobs = async () => {
         try {
             const res = await axios
                 .get(`${baseUrl}/jobs`, header)
