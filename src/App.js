@@ -5,6 +5,7 @@ import HeaderPrincipal from './components/Header/Header';
 import styled from "styled-components";
 import FooterPrincipal from './components/Footer/Footer';
 import FormCadastroServ from './components/InterfaceServico/FormCadastroServ'
+import Carrinho from './components/Carrinho/Carrinho';
 
 export default class App extends React.Component {
 render() {
@@ -13,6 +14,7 @@ render() {
 			<AppContainer />
 			<FormCadastroServ />
 			<CardServico />
+			<Carrinho />
 		</div>
 	)
 	}
