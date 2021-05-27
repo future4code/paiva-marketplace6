@@ -20,8 +20,7 @@ align-items: flex-end;
 export default class Carrinho extends React.Component {
 
     state = {
-        servicos: [],
-        carrinho: []
+        servicos: []
     }
 
 
