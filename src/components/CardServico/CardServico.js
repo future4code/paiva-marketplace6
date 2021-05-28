@@ -47,7 +47,6 @@ export default class CardServico extends React.Component {
 	};
 
   render() {
-    console.log(this.props)
     return (this.props.id === this.state.jobSelect.id && this.state.moreDetais) ? 
         (
             <article key={this.props.id}>
@@ -58,7 +57,7 @@ export default class CardServico extends React.Component {
               {this.props.paymentMethods.map((pay) => {
                 return <p key={pay}>{pay}</p>;
               })}
-              <p>{this.props.dueDate}</p>
+              <p>{`${this.props.dueDate.substr(8, 2)}/${this.props.dueDate.substr(5, 2)}/${this.props.dueDate.substr(0, 4)}`}</p>
               <button onClick={() => this.updateJob(this.props.id)}>Contratar</button>
             </article>
 
