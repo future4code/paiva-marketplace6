@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import Filter from "../Filter/Filter"
 
 const baseUrl = "https://labeninjas.herokuapp.com";
 const demoKey = "e2190c39-7930-4db4-870b-bed0e5e4b88e";
@@ -46,6 +45,7 @@ export default class CardServico extends React.Component {
 				alert(err);
 			});
 	};
+
   render() {
     return (this.props.id === this.state.jobSelect.id && this.state.moreDetais) ? 
         (
