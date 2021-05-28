@@ -8,6 +8,7 @@ import FooterPrincipal from './components/Footer/Footer';
 import FormCadastroServ from './components/InterfaceServico/FormCadastroServ'
 import Filter from './components/Filter/Filter'
 import Carrinho from './components/Carrinho/Carrinho';
+import Ordenacao from './components/Filter/ordenacao';
 
 
 const baseUrl = "https://labeninjas.herokuapp.com";
@@ -26,13 +27,13 @@ export default class App extends React.Component {
 			name: "",
 			min: 0,
 			max: Infinity
-		}
-
+		},
+		ordem: "titulo"
 	}
+
 	componentDidMount() {
 		this.getAllJobs();
 	}
-
 
 	escolheTela = () => {
 		switch (this.state.telaInicial) {
@@ -43,6 +44,9 @@ export default class App extends React.Component {
 						handleChange={this.handleChange}
 						setFilter={this.setFilter}
 					/>
+					<Ordenacao
+						onChangeOrdenacao={this.onChangeOrdenacao}
+					/>
 					{!this.state.isLoading && this.renderListFiltered()}
 					<Carrinho />
 				</div>
@@ -51,16 +55,20 @@ export default class App extends React.Component {
 			default:
 				return <CardServico />
 
-
 		}
 	}
+
 	irParaInicio = () => {
 		this.setState({ telaInicial: "inicio" })
 	}
+
 	IrParaCadastroProfissional = () => {
 		this.setState({ telaInicial: "cadastroProfissional" })
 	}
 
+	onChangeOrdenacao = (event) => {
+        this.setState({ ordem: event.target.value });
+    }
 
 	getAllJobs = () => {
 		this.setState({ isLoading: true })
@@ -95,6 +103,38 @@ export default class App extends React.Component {
 			job.title.includes(this.state.filter.name) &&
 			job.price >= this.state.filter.min &&
 			job.price <= this.state.filter.max)
+	
+		switch (this.state.ordem) {
+			case "crescente":
+				listaFiltrada.sort((a, b) => {
+					return a.price < b.price ? -1 : a.price > b.price ? 1 : 0;
+				})
+				break;
+			case "decrescente":
+				listaFiltrada.sort((a, b) => {
+					return a.price > b.price ? -1 : a.price < b.price ? 1 : 0;
+				})
+				break;
+			case "prazoCrescente":
+				listaFiltrada.sort((a, b) => {
+					return a.dueDate < b.dueDate ? -1 : a.dueDate > b.dueDate ? 1 : 0;
+				})
+				break;
+			case "prazoDecrescente":
+				listaFiltrada.sort((a, b) => {
+					return a.dueDate > b.dueDate ? -1 : a.dueDate < b.dueDate ? 1 : 0;
+				})
+				break;
+			case "titulo":
+				listaFiltrada.sort((a, b) => {
+					return a.title < b.title ? -1 : a.title > b.title ? 1 : 0;
+				})
+				break;
+		
+			default:
+				break;
+		}
+
 		return listaFiltrada.map((job) => {
 			return <CardServico
 				id={job.id}
