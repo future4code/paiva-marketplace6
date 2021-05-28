@@ -2,11 +2,12 @@ import CardServico from './components/CardServico/CardServico'
 import React from 'react';
 import axios from 'axios'
 import { AppContainer } from './components/AppContainer';
-import HeaderPrincipal from './components/Header/Header';
+import Header from './components/Header/Header';
 import styled from "styled-components";
 import FooterPrincipal from './components/Footer/Footer';
 import FormCadastroServ from './components/InterfaceServico/FormCadastroServ'
 import Filter from './components/Filter/Filter'
+import Carrinho from './components/Carrinho/Carrinho';
 
 
 const baseUrl = "https://labeninjas.herokuapp.com";
@@ -15,6 +16,7 @@ const demoKey = "e2190c39-7930-4db4-870b-bed0e5e4b88e";
 export default class App extends React.Component {
 
 	state = {
+    telaInicial : "inicio",
 		jobs: [],
 		isLoading: false,
 		inputNameFilter: "",
@@ -31,6 +33,26 @@ export default class App extends React.Component {
 		this.getAllJobs();
 	}
 
+  
+  	escolheTela = () =>{
+		switch(this.state.telaInicial){
+			case "inicio":
+				return <CardServico />
+			case "cadastroProfissional":
+				return <FormCadastroServ />
+			default:
+				return <CardServico />	
+	
+		}
+	}
+	irParaInicio = () => {
+		this.setState ({telaInicial: "inicio"})
+	}
+	IrParaCadastroProfissional = () =>{
+		this.setState ({telaInicial:"cadastroProfissional"})
+	}
+
+  
 	getAllJobs = () => {
 		this.setState({ isLoading: true })
 		const header = {
@@ -101,9 +123,13 @@ export default class App extends React.Component {
 		console.log(this.state)
 		return (
 			<div>
-				<HeaderPrincipal />
+							<Header 
+			botaoCadastro = {this.IrParaCadastroProfissional}
+			botaoInicio = {this.irParaInicio}
+			estadoTelaInicial = {this.state.telaInicial}
+			/>
+        {this.escolheTela()}
 				<AppContainer />
-				<FormCadastroServ />
 				<button onClick={() => console.log(this.state)}>teste</button>
 				<Filter
 					inputNameFilter={this.state.inputNameFilter}
@@ -112,9 +138,9 @@ export default class App extends React.Component {
 				/>
 				{!this.state.isLoading && this.renderListFiltered()}
 				<FooterPrincipal />
+        <Carrinho />
 			</div>
 		)
 	}
 }
-
 

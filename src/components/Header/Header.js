@@ -1,46 +1,31 @@
 import React from 'react';
 import styled from "styled-components";
 import logoLabeNinjas from "../../imagens/labeninjas.png";
-import { Link } from "react-router-dom";
+import CardServico from '../CardServico/CardServico';
+import FormCadastroServ from '../InterfaceServico/FormCadastroServ';
+import {HeaderPrincipal, ButtonCadastro, Logo} from "./styled"
 
-
-
-const HeaderPrincipal = styled.div`
-background-color: #e5e5e5;
-display: flex;
-margin-top: 0;
-height: 120px;
-justify-content: space-between;
-`;
-
-const Logo = styled.img`
-height: 110px;
-width: 200px;
-
-`;
-
-const ButtonCadastro = styled.button`
-margin-right: 30vw;
-margin-top: 40px;
-align-content: center;
-
-
-`;
-
-export default function Header() {
+export default class Header extends React.Component {
+    
+    render (){
     return (
         <div>
          <HeaderPrincipal>
              <Logo src={logoLabeNinjas} alt="Logo" />
              <div>
-            {/* <Link to="/"> */}
-             <ButtonCadastro>CADASTRO PROFISSIONAL</ButtonCadastro>
-             {/* </Link> */}
-             </div>
-            
-             
+             {this.props.estadoTelaInicial === "inicio"  && (
+				<ButtonCadastro onClick={this.props.botaoCadastro} >CADASTRO PROFISSIONAL</ButtonCadastro>
+			)}
+            {this.props.estadoTelaInicial === "cadastroProfissional" && (
+				<ButtonCadastro onClick={this.props.botaoInicio}> BUSCA DE SERVIÇOS </ButtonCadastro>
+			)}
 
+
+             </div>
+           
          </HeaderPrincipal> 
         </div>
         );
+             
+    }
 }
