@@ -16,7 +16,7 @@ const demoKey = "e2190c39-7930-4db4-870b-bed0e5e4b88e";
 export default class App extends React.Component {
 
 	state = {
-    telaInicial : "inicio",
+		telaInicial: "inicio",
 		jobs: [],
 		isLoading: false,
 		inputNameFilter: "",
@@ -33,26 +33,35 @@ export default class App extends React.Component {
 		this.getAllJobs();
 	}
 
-  
-  	escolheTela = () =>{
-		switch(this.state.telaInicial){
+
+	escolheTela = () => {
+		switch (this.state.telaInicial) {
 			case "inicio":
-				return <CardServico />
+				return <div>
+					<Filter
+						inputNameFilter={this.state.inputNameFilter}
+						handleChange={this.handleChange}
+						setFilter={this.setFilter}
+					/>
+					{!this.state.isLoading && this.renderListFiltered()}
+					<Carrinho />
+				</div>
 			case "cadastroProfissional":
 				return <FormCadastroServ />
 			default:
-				return <CardServico />	
-	
+				return <CardServico />
+
+
 		}
 	}
 	irParaInicio = () => {
-		this.setState ({telaInicial: "inicio"})
+		this.setState({ telaInicial: "inicio" })
 	}
-	IrParaCadastroProfissional = () =>{
-		this.setState ({telaInicial:"cadastroProfissional"})
+	IrParaCadastroProfissional = () => {
+		this.setState({ telaInicial: "cadastroProfissional" })
 	}
 
-  
+
 	getAllJobs = () => {
 		this.setState({ isLoading: true })
 		const header = {
@@ -73,10 +82,7 @@ export default class App extends React.Component {
 
 	};
 
-
-
 	handleChange = (name, e) => {
-		console.log(name, e.target.value)
 		this.setState(
 			{
 				[name]: e.target.value
@@ -85,10 +91,10 @@ export default class App extends React.Component {
 	}
 
 	renderListFiltered = () => {
-		let listaFiltrada = this.state.jobs.filter(job => 
-		job.title.includes(this.state.filter.name) &&
-		job.price >= this.state.filter.min &&
-		job.price <= this.state.filter.max)
+		let listaFiltrada = this.state.jobs.filter(job =>
+			job.title.includes(this.state.filter.name) &&
+			job.price >= this.state.filter.min &&
+			job.price <= this.state.filter.max)
 		return listaFiltrada.map((job) => {
 			return <CardServico
 				id={job.id}
@@ -114,31 +120,16 @@ export default class App extends React.Component {
 		this.setState({ isLoading: false })
 	}
 
-
-	handleChangeName = (e) => {
-		this.setState({ inputNameFilter: e.target.value })
-	}
-
 	render() {
-		console.log(this.state)
 		return (
 			<div>
-							<Header 
-			botaoCadastro = {this.IrParaCadastroProfissional}
-			botaoInicio = {this.irParaInicio}
-			estadoTelaInicial = {this.state.telaInicial}
-			/>
-        {this.escolheTela()}
-				<AppContainer />
-				<button onClick={() => console.log(this.state)}>teste</button>
-				<Filter
-					inputNameFilter={this.state.inputNameFilter}
-					handleChange={this.handleChange}
-					setFilter={this.setFilter}
+				<Header
+					botaoCadastro={this.IrParaCadastroProfissional}
+					botaoInicio={this.irParaInicio}
+					estadoTelaInicial={this.state.telaInicial}
 				/>
-				{!this.state.isLoading && this.renderListFiltered()}
+				{this.escolheTela()}
 				<FooterPrincipal />
-        <Carrinho />
 			</div>
 		)
 	}
