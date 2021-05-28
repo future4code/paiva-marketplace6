@@ -33,9 +33,9 @@ export default function Header() {
          <HeaderPrincipal>
              <Logo src={logoLabeNinjas} alt="Logo" />
              <div>
-             <Link to="/">
+            {/* <Link to="/"> */}
              <ButtonCadastro>CADASTRO PROFISSIONAL</ButtonCadastro>
-             </Link>
+             {/* </Link> */}
              </div>
             
              
