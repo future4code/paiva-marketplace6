@@ -1,7 +1,6 @@
 import CardServico from './components/CardServico/CardServico'
 import React from 'react';
 import axios from 'axios'
-import { AppContainer } from './components/AppContainer';
 import Header from './components/Header/Header';
 import styled from "styled-components";
 import FooterPrincipal from './components/Footer/Footer';
@@ -29,6 +28,11 @@ export default class App extends React.Component {
 		}
 
 	}
+
+	componentDidUpdate () {
+		this.getAllJobs();
+	}
+
 	componentDidMount() {
 		this.getAllJobs();
 	}
@@ -54,16 +58,17 @@ export default class App extends React.Component {
 
 		}
 	}
+
 	irParaInicio = () => {
 		this.setState({ telaInicial: "inicio" })
 	}
+
 	IrParaCadastroProfissional = () => {
 		this.setState({ telaInicial: "cadastroProfissional" })
 	}
 
 
 	getAllJobs = () => {
-		this.setState({ isLoading: true })
 		const header = {
 			headers: {
 				Authorization: demoKey
@@ -74,7 +79,6 @@ export default class App extends React.Component {
 			.get(`${baseUrl}/jobs`, header)
 			.then((rtn) => {
 				this.setState({ jobs: rtn.data.jobs });
-				this.setState({ isLoading: false })
 			})
 			.catch((err) => {
 				alert("Algo deu errado, tente novamente!");
@@ -96,14 +100,16 @@ export default class App extends React.Component {
 			job.price >= this.state.filter.min &&
 			job.price <= this.state.filter.max)
 		return listaFiltrada.map((job) => {
-			return <CardServico
-				id={job.id}
-				title={job.title}
-				price={job.price}
-				description={job.description}
-				paymentMethods={job.paymentMethods}
-				dueDate={job.dueDate}
-			/>
+			if (job.taken === false) {
+				return <CardServico
+					id={job.id}
+					title={job.title}
+					price={job.price}
+					description={job.description}
+					paymentMethods={job.paymentMethods}
+					dueDate={job.dueDate}
+				/>
+			}
 		})
 	}
 
