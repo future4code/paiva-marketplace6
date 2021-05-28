@@ -13,8 +13,6 @@ export default class Header extends React.Component {
          <HeaderPrincipal>
              <Logo src={logoLabeNinjas} alt="Logo" />
              <div>
-             
-             
              {this.props.estadoTelaInicial === "inicio"  && (
 				<ButtonCadastro onClick={this.props.botaoCadastro} >CADASTRO PROFISSIONAL</ButtonCadastro>
 			)}
