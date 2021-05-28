@@ -47,6 +47,7 @@ export default class CardServico extends React.Component {
 			});
 	};
   render() {
+    console.log(this.props)
     return (this.props.id === this.state.jobSelect.id && this.state.moreDetais) ? 
         (
             <article key={this.props.id}>
