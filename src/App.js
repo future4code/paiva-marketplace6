@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import styled from "styled-components";
 import FooterPrincipal from './components/Footer/Footer';
 import FormCadastroServ from './components/InterfaceServico/FormCadastroServ'
+import Carrinho from './components/Carrinho/Carrinho';
 
 export default class App extends React.Component {
 state = {
@@ -39,6 +40,10 @@ render() {
 			/>
 			{this.escolheTela()}
 			<FooterPrincipal/>
+			<AppContainer />
+			<FormCadastroServ />
+			<CardServico />
+			<Carrinho />
 		</div>
 	)}	
 }
