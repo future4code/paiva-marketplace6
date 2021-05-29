@@ -30,11 +30,9 @@ export default class App extends React.Component {
 		ordem: "titulo"
 	}
 
-
 	componentDidUpdate () {
 		this.getAllJobs();
 	}
-
 
 	componentDidMount() {
 		this.getAllJobs();

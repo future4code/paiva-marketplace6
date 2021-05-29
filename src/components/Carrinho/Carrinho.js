@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import styled from 'styled-components'
+import { ContainerCarrinho, CabecalhoCarrinho, ServicosCarrinho, FlexBotao, BoxValor, ValorTotal } from "./styles"
 
 const baseUrl = "https://labeninjas.herokuapp.com";
 const demoKey = "e2190c39-7930-4db4-870b-bed0e5e4b88e";
@@ -10,17 +10,11 @@ const header = {
     }
 };
 
-const ContainerCarrinho = styled.div`
-display: flex;
-flex-direction: column;
-width: 100%;
-align-items: flex-end;
-`
-
 export default class Carrinho extends React.Component {
 
     state = {
-        servicos: []
+        servicos: [],
+        produtosNoCarinho: 0
     }
 
 
@@ -78,17 +72,31 @@ export default class Carrinho extends React.Component {
 
         return (
             <ContainerCarrinho>
+                <h2>CARRINHO</h2>
+                <CabecalhoCarrinho>
+                <h3>Título:</h3> <BoxValor> <h3>Valor:</h3> </BoxValor>
+                </CabecalhoCarrinho>
                 {this.state.servicos.map((servico) => {
                     if (servico.taken) {
-                        return <div>
-                            <h3>{servico.title}</h3>
-                            <h4>{servico.price}</h4>
+                        return <ServicosCarrinho>
+                            <CabecalhoCarrinho>
+                            <h4>{servico.title}</h4>
+                            <BoxValor>
+                                <h4>
+                                R${servico.price}
+                                </h4>
+                                </BoxValor>
+                            </CabecalhoCarrinho>
+                            <FlexBotao>
                             <button onClick={() => this.removerCarrinho(servico.id)}>X</button>
-                        </div>
+                            </FlexBotao>
+                        </ServicosCarrinho>
                     }
                 })
                 }
-                <h5>Total: {this.calculaTotal()}</h5>
+                <ValorTotal>
+                <h3>VALOR TOTAL: R${this.calculaTotal()}</h3>
+                </ValorTotal>
 
             </ContainerCarrinho>
         )
