@@ -15,7 +15,7 @@ width: 200px;
 
 `;
 
-export const Button = styled.button`
+export const ButtonCadastro = styled.button`
 margin-right: 30vw;
 margin-top: 40px;
 align-content: center;
