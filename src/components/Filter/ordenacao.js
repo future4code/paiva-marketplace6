@@ -9,7 +9,7 @@ export default class Ordenacao extends React.Component {
 
         return(
             <div>
-                <h3>Odenar por:</h3>
+                <h3>Ordenar por:</h3>
                 <div value={this.state.ordem}>
                     <select onChange={this.props.onChangeOrdenacao}>
                         <option value="titulo">Título</option>
@@ -24,3 +24,4 @@ export default class Ordenacao extends React.Component {
         )
     }
 }
+                    

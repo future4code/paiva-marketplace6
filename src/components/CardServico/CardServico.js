@@ -1,5 +1,9 @@
 import React from "react";
 import axios from "axios";
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import {ThemeProvider } from '@material-ui/core/styles';
+import {theme} from "./styled"
 
 const baseUrl = "https://labeninjas.herokuapp.com";
 const demoKey = "e2190c39-7930-4db4-870b-bed0e5e4b88e";
@@ -51,14 +55,14 @@ export default class CardServico extends React.Component {
         (
             <article key={this.props.id}>
               <h3>{this.props.title}</h3>
-              <h4>{this.props.price}</h4>
-              <button onClick={() => this.handleMoreDetais()}>- Detalhes</button>
+              <h4>R$ {this.props.price},00</h4>
+              <Button variant="contained" color="primary" size="small" onClick={() => this.handleMoreDetais()}>- Detalhes</Button>
               <p>{this.props.description}</p>
               {this.props.paymentMethods.map((pay) => {
                 return <p key={pay}>{pay}</p>;
               })}
               <p>{`${this.props.dueDate.substr(8, 2)}/${this.props.dueDate.substr(5, 2)}/${this.props.dueDate.substr(0, 4)}`}</p>
-              <button onClick={() => this.updateJob(this.props.id)}>Contratar</button>
+              <Button variant="contained" color="primary" size="small" onClick={() => this.updateJob(this.props.id)}>Contratar</Button>
             </article>
 
         ) :
@@ -66,9 +70,9 @@ export default class CardServico extends React.Component {
           <div>
             <article key={this.props.id}>
               <h3>{this.props.title}</h3>
-              <h4>{this.props.price}</h4>
-              <button onClick={() => this.getJobById(this.props.id)}>+ Detalhes</button>
-              <button onClick={() => this.updateJob(this.props.id)}>Contratar</button>
+              <h4>R$ {this.props.price},00</h4>
+              <Button variant="contained" color="primary" size="small" onClick={() => this.getJobById(this.props.id)}>+ Detalhes</Button>
+              <Button variant="contained" color="primary" size="small" onClick={() => this.updateJob(this.props.id)}>Contratar</Button>
             </article>
           </div>
         );
