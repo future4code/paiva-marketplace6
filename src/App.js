@@ -4,8 +4,8 @@ import axios from 'axios'
 import Header from './components/Header/Header';
 import styled from "styled-components";
 import FooterPrincipal from './components/Footer/Footer';
-import FormCadastroServ from './components/InterfaceServico/FormCadastroServ'
-import Filter from './components/Filter/Filter'
+import FormCadastroServ from './components/InterfaceServico/FormCadastroServ';
+import Filter from './components/Filter/Filter';
 import Carrinho from './components/Carrinho/Carrinho';
 import Ordenacao from './components/Filter/ordenacao';
 

@@ -1,30 +1,31 @@
 import React from 'react';
 import styled from "styled-components";
 import logoLabeNinjas from "../../imagens/labeninjas.png";
-import CardServico from '../CardServico/CardServico';
-import FormCadastroServ from '../InterfaceServico/FormCadastroServ';
-import {HeaderPrincipal, ButtonCadastro, Logo} from "./styled"
+import {HeaderPrincipal, TesteBotao, Logo} from "./styled";
+import Button from '@material-ui/core/Button';
+import {ThemeProvider } from '@material-ui/core/styles';
+import {theme} from "./styled"
 
 export default class Header extends React.Component {
     
     render (){
     return (
-        <div>
+        <ThemeProvider theme={theme}>
          <HeaderPrincipal>
              <Logo src={logoLabeNinjas} alt="Logo" />
              <div>
              {this.props.estadoTelaInicial === "inicio"  && (
-				<ButtonCadastro onClick={this.props.botaoCadastro} >CADASTRO PROFISSIONAL</ButtonCadastro>
+				<Button variant="outlined" color="primary" onClick={this.props.botaoCadastro} >CADASTRO PROFISSIONAL</Button>
 			)}
             {this.props.estadoTelaInicial === "cadastroProfissional" && (
-				<ButtonCadastro onClick={this.props.botaoInicio}> BUSCA DE SERVIÇOS </ButtonCadastro>
+				<Button variant="outlined" color="primary" onClick={this.props.botaoInicio}> BUSCA DE SERVIÇOS </Button>
 			)}
 
 
              </div>
            
          </HeaderPrincipal> 
-        </div>
+        </ThemeProvider>
         );
              
     }
