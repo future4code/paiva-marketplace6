@@ -12,7 +12,8 @@ export default class Ordenacao extends React.Component {
         return(
             <OrdenacaoContainer>
                 <div value={this.state.ordem}>
-                <h3>Ordenar por:
+                <h3>Ordenar por:</h3>
+                    <h3>
                     <Seletor onChange={this.props.onChangeOrdenacao}>
                         <option value="titulo">Título</option>
                         <option value="crescente">Menor valor</option>

@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export const FooterPrincipal = styled.div`
 color: white;
+margin-top: 5px;
 margin-bottom: 0;
 background-color: #6200ee;
 display: flex;

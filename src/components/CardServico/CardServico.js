@@ -63,7 +63,7 @@ export default class CardServico extends React.Component {
               <p><strong>Formas de pagamento:</strong></p>
               <div className="formas-pagamento">
                 {this.props.paymentMethods.map((pay) => {
-                  return <p key={pay}>{pay}</p>;
+                  return <p key={pay}> - {pay}</p>;
                 })}
               </div>
               

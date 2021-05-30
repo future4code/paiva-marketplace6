@@ -7,11 +7,11 @@ display: flex;
 flex-direction: column;
 width: 23%;
 position: absolute;
-top: 14vh;
 left: 70vw;
 border: 1px solid #6200ee;
 text-align: center;
-padding: 3vw;
+padding: 2vw;
+border-radius:5px
 `
 
 export const FlexBotao = styled.div`
@@ -29,6 +29,7 @@ justify-content: space-between;
 
 export const BoxValor = styled.div`
 width: 15%;
+
 `
 
 export const ServicosCarrinho = styled.div`
@@ -36,10 +37,11 @@ display: flex;
 width: 100%;
 
 button {
-    height: 2.5vh;
+    
     background-color: white;
     font-weight: 800;
     border: 1px solid black;
+    border-radius: 3px;
 }
 `
 export const ValorTotal = styled.div`

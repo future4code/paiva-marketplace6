@@ -72,9 +72,10 @@ export default class Carrinho extends React.Component {
 
         return (
             <ContainerCarrinho>
-                <h2>CARRINHO</h2>
+                <h2>CARRINHO<hr></hr></h2>
                 <CabecalhoCarrinho>
                 <h3>Título:</h3> <BoxValor> <h3>Valor:</h3> </BoxValor>
+                
                 </CabecalhoCarrinho>
                 {this.state.servicos.map((servico) => {
                     if (servico.taken) {
@@ -95,7 +96,7 @@ export default class Carrinho extends React.Component {
                 })
                 }
                 <ValorTotal>
-                <h3>VALOR TOTAL: R${this.calculaTotal()}</h3>
+                <h3><hr></hr>VALOR TOTAL: R${this.calculaTotal()}<hr></hr></h3>
                 </ValorTotal>
 
             </ContainerCarrinho>
