@@ -67,7 +67,7 @@ export default class App extends React.Component {
 		this.setState({ telaInicial: "inicio" })
 	}
 
-	IrParaCadastroProfissional = () => {
+	irParaCadastroProfissional = () => {
 		this.setState({ telaInicial: "cadastroProfissional" })
 	}
 
@@ -169,7 +169,7 @@ export default class App extends React.Component {
 		return (
 			<div>
 				<Header
-					botaoCadastro={this.IrParaCadastroProfissional}
+					botaoCadastro={this.irParaCadastroProfissional}
 					botaoInicio={this.irParaInicio}
 					estadoTelaInicial={this.state.telaInicial}
 				/>
