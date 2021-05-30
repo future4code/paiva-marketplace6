@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import {Seletor,OrdenacaoContainer} from "./styled";
+
 
 export default class Ordenacao extends React.Component {
     state = {
@@ -8,20 +10,21 @@ export default class Ordenacao extends React.Component {
     render() {
 
         return(
-            <div>
-                <h3>Ordenar por:</h3>
+            <OrdenacaoContainer>
                 <div value={this.state.ordem}>
-                    <select onChange={this.props.onChangeOrdenacao}>
+                <h3>Ordenar por:
+                    <Seletor onChange={this.props.onChangeOrdenacao}>
                         <option value="titulo">Título</option>
                         <option value="crescente">Menor valor</option>
                         <option value="decrescente">Maior valor</option>
                         <option value="prazoDecrescente">Maior prazo</option>
                         <option value="prazoCrescente">Menor prazo</option>
-                    </select>
-
+                    </Seletor>
+                    </h3>
                 </div>
-            </div>
+            </OrdenacaoContainer>
         )
     }
 }
+
                     

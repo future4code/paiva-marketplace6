@@ -10,6 +10,7 @@ height: 120px;
 justify-content: space-between;
 padding-right: 30vw;
 align-items: center;
+margin-bottom: 5px;
 `;
 
 export const TesteBotao = styled(Button)`
