@@ -14,7 +14,7 @@ return (
        <div>
        <dl>
              <dt>Somos o maior aplicativo para contratação de serviços da América Latina. </dt>
-             <dt>2021 @LabeNinjas. Av.São João - Centro, São Paulo / SP</dt>
+             <dt>2021 @LabeNinjas. Av. São João - Centro, São Paulo / SP</dt>
         </dl> 
         </div>
         <div>
