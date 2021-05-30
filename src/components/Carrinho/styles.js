@@ -10,7 +10,6 @@ position: absolute;
 top: 14vh;
 left: 70vw;
 border: 1px solid #6200ee;
-background-color: #e5e5e5;
 text-align: center;
 padding: 3vw;
 `
