@@ -1,6 +1,15 @@
 import React from 'react'
 import axios from 'axios'
 
+import { FormServicos } from './styledServicos'
+import TextField from '@material-ui/core/TextField';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import { theme } from "./styledServicos"
+import Button from '@material-ui/core/Button';
+
+import ProfissionaisServicos from '../../imagens/imagem2.png'
+import { Checkbox } from '@material-ui/core';
+
 const baseUrl = "https://labeninjas.herokuapp.com"
 const demoKey = "e2190c39-7930-4db4-870b-bed0e5e4b88e"
 
@@ -8,7 +17,7 @@ export default class FormCadastroServ extends React.Component {
     state = {
         inputTitulo: "",
         descricaoServ: "",
-        valor: -Infinity,
+        valor: "",
         formasPagamento: [
             { id: 1, label: "Boleto", value: "boleto", isCheck: false },
             { id: 2, label: "Cartão de crédito", value: "credito", isCheck: false },
@@ -37,7 +46,7 @@ export default class FormCadastroServ extends React.Component {
         let copiaPag = []
         formasPagamento.map(pag => {
             if (pag.value === e.target.value)
-            copiaPag = [... this.state.pagamento, pag.value ]
+                copiaPag = [... this.state.pagamento, pag.value]
             this.setState({ pagamento: copiaPag })
         })
     }
@@ -65,7 +74,7 @@ export default class FormCadastroServ extends React.Component {
                 alert("Seu servço foi cadastrado com sucesso!")
                 this.setState({ inputTitulo: "" })
                 this.setState({ descricaoServ: "" })
-                this.setState({ valor: -Infinity })
+                this.setState({ valor: "" })
             })
             .catch((err) => {
                 alert(err)
@@ -74,58 +83,65 @@ export default class FormCadastroServ extends React.Component {
 
     render() {
         return (
-            <div>
-                <div>
-                    <label>Título</label>
-                    <input
-                        placeholder="Seu serviço"
-                        value={this.state.inputTitulo}
-                        onChange={this.handleInputTitulo}
-                    ></input>
-                    <label>Descrição</label>
-                    <textarea
-                        rows="5"
-                        cols="33"
-                        placeholder="Descreva detalhadamente o serviço oferecido por você ou sua empresa"
-                        value={this.state.descricaoServ}
-                        onChange={this.handleDescricaoServ}
-                    ></textarea>
-                    <label>Valor da remuneração</label>
-                    <input
-                        type="number"
-                        value={this.state.valor}
-                        onChange={this.handleValor}
-                    ></input>
-                    
+            <FormServicos>
+                <div className="formulario">
+                    <div className="input">
+                        <TextField label="Título" id="outlined-basic" variant="outlined" defaultValue="Small" size="small" fullWidth
+                            placeholder="Seu serviço"
+                            value={this.state.inputTitulo}
+                            onChange={this.handleInputTitulo}
+                        ></TextField>
+                    </div>
+                    <div className="input">
+                        <TextField label="Descrição" id="outlined-textarea" multiline variant="outlined" defaultValue="Small" size="small" fullWidth
+                            rows="5"
+                            cols="33"
+                            value={this.state.descricaoServ}
+                            onChange={this.handleDescricaoServ}
+                        ></TextField>
+                    </div>
+                    <div className="input">
+                        <TextField label="Valor da remuneração" id="outlined-basic" variant="outlined" defaultValue="Small" size="small" fullWidth
+                            type="number"
+                            value={this.state.valor}
+                            onChange={this.handleValor}
+                        ></TextField>
+                    </div>
+
+
                     <ul>
                         <label>Método(s) de pagamento</label>
                         {this.state.formasPagamento.map((pagamento) => {
                             return (
-                                <li>
-                                    <label>{pagamento.label}</label>
-                                    <input
+                                <div className="met-pag">
+                                    <FormControlLabel theme={theme} control={<Checkbox color="primary" />} label={pagamento.label} labelPlacement="end"
                                         key={pagamento.id}
                                         onClick={this.handlePagamento}
-                                        type="checkbox"
                                         checked={pagamento.isChecked}
                                         value={pagamento.value}
                                     />
-                                </li>
+                                </div>
                             )
                         })}
                     </ul>
+                    <div className="input">
+                        <TextField id="date-picker-dialog" label="Prazo" fullWidth
+                            type="date"
+                            value={this.state.prazo}
+                            onChange={this.handlePrazo}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                        ></TextField>
+                    </div>
 
-                    <label>Prazo</label>
-                    <input
-                        placeholder="AAAA/MM/DD"
-                        type="date"
-                        value={this.state.prazo}
-                        onChange={this.handlePrazo}
-                    ></input>
-                    <button onClick={() => this.createJob()}>Cadastrar</button>
+                    <Button variant="contained" color="primary" size="large" onClick={() => this.createJob()}>Cadastrar</Button>
                 </div>
-                <img></img>
-            </div>
+                <div className="imagem">
+                    <img src={ProfissionaisServicos}></img>
+                </div>
+
+            </FormServicos>
         )
     }
 
