@@ -1,9 +1,6 @@
 import React from "react";
 import axios from "axios";
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import {ThemeProvider } from '@material-ui/core/styles';
-import {theme} from "./styled";
 import {CardPequeno, CardComDetalhes, BotoesSemDetalhes} from "./styled"
 
 const baseUrl = "https://labeninjas.herokuapp.com";

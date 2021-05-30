@@ -1,7 +1,6 @@
 import React from 'react';
-import styled from "styled-components";
 import logoLabeNinjas from "../../imagens/labeninjas.png";
-import {HeaderPrincipal, TesteBotao, Logo} from "./styled";
+import {HeaderPrincipal, Logo} from "./styled";
 import Button from '@material-ui/core/Button';
 import {ThemeProvider } from '@material-ui/core/styles';
 import {theme} from "./styled"
