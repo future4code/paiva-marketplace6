@@ -2,7 +2,6 @@ import CardServico from './components/CardServico/CardServico'
 import React from 'react';
 import axios from 'axios'
 import Header from './components/Header/Header';
-import styled from "styled-components";
 import FooterPrincipal from './components/Footer/Footer';
 import FormCadastroServ from './components/InterfaceServico/FormCadastroServ';
 import Filter from './components/Filter/Filter';

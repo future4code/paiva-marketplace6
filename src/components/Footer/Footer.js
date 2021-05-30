@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from "styled-components";
 import logoFace from "../../imagens/face.png"
 import logoInsta from "../../imagens/insta.png"
 import logoTwitter from "../../imagens/twitter.png"
