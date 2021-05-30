@@ -5,10 +5,10 @@ import styled from "styled-components"
 export const ContainerCarrinho = styled.div`
 display: flex;
 flex-direction: column;
-width: 30%;
+width: 23%;
 position: absolute;
-top: 20vh;
-left: 60vw;
+top: 14vh;
+left: 70vw;
 border: 1px solid #6200ee;
 background-color: #e5e5e5;
 text-align: center;
