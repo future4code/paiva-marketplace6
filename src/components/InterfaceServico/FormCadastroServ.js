@@ -11,7 +11,6 @@ import ProfissionaisServicos from '../../imagens/imagem2.png'
 import { Checkbox } from '@material-ui/core';
 
 const baseUrl = "https://labeninjas.herokuapp.com"
-const demoKey = "e2190c39-7930-4db4-870b-bed0e5e4b88e"
 
 export default class FormCadastroServ extends React.Component {
     state = {

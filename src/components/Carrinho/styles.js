@@ -5,7 +5,7 @@ import styled from "styled-components"
 export const ContainerCarrinho = styled.div`
 display: flex;
 flex-direction: column;
-width: 23%;
+width: 22.5vw;
 position: absolute;
 top: 14vh;
 left: 70vw;
