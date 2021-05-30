@@ -12,7 +12,9 @@ return (
     
   <FooterPrincipal >
        <div>
-       <dl>
+       <dl> 
+             <dt> </dt>
+             <dt> </dt>
              <dt>Somos o maior aplicativo para contratação de serviços da América Latina. </dt>
              <dt>2021 @LabeNinjas. Av.São João - Centro, São Paulo / SP</dt>
         </dl> 
