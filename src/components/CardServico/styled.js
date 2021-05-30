@@ -1,17 +1,25 @@
 import styled from "styled-components";
 import { createMuiTheme } from '@material-ui/core/styles';
 
-export const CardPequeno = styled.article`
+/* export const Produtos = styled.div`
+  grid-column: 1 / span 3;
+` */
+
+export const CardPequeno = styled.div`
 border: 1px solid #3700b3;
 margin-bottom: 10px;
 border-radius: 3px
 `;
 
-export const CardComDetalhes = styled.article`
+export const CardComDetalhes = styled.div`
 border: 1px solid #3700b3;
 margin-bottom: 10px;
-border-radius: 3px
-`;
+border-radius: 3px;
+.formas-pagamento{
+  display: flex;
+  justify-content: space-around;
+ }
+`
 
 
 export const theme = createMuiTheme({

@@ -8,7 +8,7 @@ import FormCadastroServ from './components/InterfaceServico/FormCadastroServ';
 import Filter from './components/Filter/Filter';
 import Carrinho from './components/Carrinho/Carrinho';
 import Ordenacao from './components/Filter/ordenacao';
-
+import { ClassProdutos, Home } from './styledGlobal'
 
 const baseUrl = "https://labeninjas.herokuapp.com";
 const demoKey = "e2190c39-7930-4db4-870b-bed0e5e4b88e";
@@ -41,7 +41,7 @@ export default class App extends React.Component {
 	escolheTela = () => {
 		switch (this.state.telaInicial) {
 			case "inicio":
-				return <div>
+				return <Home>
 					<Filter
 						inputNameFilter={this.state.inputNameFilter}
 						handleChange={this.handleChange}
@@ -52,11 +52,13 @@ export default class App extends React.Component {
 					/>
 					{!this.state.isLoading && this.renderListFiltered()}
 					<Carrinho />
-				</div>
+				</Home>
 			case "cadastroProfissional":
 				return <FormCadastroServ />
 			default:
-				return <CardServico />
+				return <ClassProdutos> 
+						<CardServico />
+					</ClassProdutos>
 
 		}
 	}
