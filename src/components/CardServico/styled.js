@@ -7,20 +7,30 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 export const CardPequeno = styled.div`
 border: 1px solid #3700b3;
-margin-bottom: 10px;
-border-radius: 3px
+margin-top: 10px;
+border-radius: 3px;
+margin-left: 10px;
+padding-left: 10px;
+padding-bottom: 10px;
 `;
 
 export const CardComDetalhes = styled.div`
 border: 1px solid #3700b3;
-margin-bottom: 10px;
+margin-top: 10px;
 border-radius: 3px;
+margin-left: 10px;
+padding-left: 10px;
+padding-bottom: 10px;
+
 .formas-pagamento{
   display: flex;
   justify-content: space-around;
  }
 `
-
+export const BotoesSemDetalhes = styled.div`
+display:flex;
+justify-content: space-around
+`;
 
 export const theme = createMuiTheme({
     palette: {

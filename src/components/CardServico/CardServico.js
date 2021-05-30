@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import {ThemeProvider } from '@material-ui/core/styles';
 import {theme} from "./styled";
-import {CardPequeno, CardComDetalhes, Produtos} from "./styled"
+import {CardPequeno, CardComDetalhes, BotoesSemDetalhes} from "./styled"
 
 const baseUrl = "https://labeninjas.herokuapp.com";
 const demoKey = "e2190c39-7930-4db4-870b-bed0e5e4b88e";
@@ -77,8 +77,10 @@ export default class CardServico extends React.Component {
             <CardPequeno key={this.props.id}>
               <h3>{this.props.title}</h3>
               <h4>R$ {this.props.price},00</h4>
+              <BotoesSemDetalhes>
               <Button variant="contained" color="primary" size="small" onClick={() => this.getJobById(this.props.id)}>+ Detalhes</Button>
               <Button variant="contained" color="primary" size="small" onClick={() => this.updateJob(this.props.id)}>Contratar</Button>
+              </BotoesSemDetalhes>
             </CardPequeno>
           </div>
         );
